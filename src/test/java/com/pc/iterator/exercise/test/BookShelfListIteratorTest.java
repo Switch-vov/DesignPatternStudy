@@ -1,4 +1,4 @@
-package com.pc.iterator.example.test;
+package com.pc.iterator.exercise.test;
 
 import com.pc.iterator.example.Book;
 import com.pc.iterator.example.Iterator;
