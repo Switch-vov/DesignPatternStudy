@@ -1,0 +1,30 @@
+@startuml
+
+abstract class Handler {
+    next
+    request()
+}
+
+note left of Client : 请求者
+note right of Handler : 处理者
+note left of ConcreteHandler1 : 具体处理者1
+note left of ConcreteHandler2 : 具体处理者2
+Client -right-> Handler : Request >
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+Handler o. Handler
+
+class Client {
+
+}
+
+class ConcreteHandler1 {
+    request()
+}
+
+class ConcreteHandler2 {
+    request()
+}
+
+
+@enduml
