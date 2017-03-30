@@ -1,0 +1,51 @@
+@startuml
+
+interface Mediator {
+    createColleagues()
+    colleagueChanged()
+}
+
+interface Colleague {
+    mediator
+    setMediator()
+    controlColleague()
+}
+
+class ConcreteMediator {
+    concreteColleague1
+    concreteColleague2
+    concreteColleague3
+    createColleagues()
+    colleagueChanged()
+}
+
+class ConcreteColleague1 {
+    controlColleague()
+}
+
+class ConcreteColleague2 {
+    controlColleague()
+}
+
+class ConcreteColleague3 {
+    controlColleague()
+}
+
+Mediator <-o Colleague
+ConcreteMediator .up.|> Mediator
+ConcreteMediator o-> ConcreteColleague1
+ConcreteMediator o--> ConcreteColleague2
+ConcreteMediator o--> ConcreteColleague3
+ConcreteColleague1 .up.|> Colleague
+ConcreteColleague2 .up.|> Colleague
+ConcreteColleague3 .up.|> Colleague
+
+note left of Mediator : 中介者
+note right of Colleague : 同事
+note right of ConcreteMediator : 具体中介者
+note "具体的同事" as N1
+ConcreteColleague1 .. N1
+ConcreteColleague2 .. N1
+ConcreteColleague3 .. N1
+
+@enduml
