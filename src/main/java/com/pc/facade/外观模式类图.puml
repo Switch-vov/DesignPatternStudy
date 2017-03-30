@@ -1,0 +1,24 @@
+@startuml
+
+class Client {
+
+}
+note left of Client: 请求者
+note left of Facade: 窗口
+note "构成系统的许多其他角色" as N1
+ClassA .. N1
+ClassB .. N1
+ClassC .. N1
+ClassD .. N1
+
+Client --> Facade : Uses >
+Facade --> ClassA
+Facade --> ClassB
+Facade --> ClassC
+Facade --> ClassD
+ClassA --> ClassB
+ClassD --> ClassC
+ClassB -> ClassC
+ClassC -> ClassB
+
+@enduml
