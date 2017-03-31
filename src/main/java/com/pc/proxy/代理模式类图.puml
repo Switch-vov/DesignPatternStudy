@@ -1,0 +1,34 @@
+@startuml
+
+class Subject {
+    request1()
+    request2()
+    request3()
+}
+
+class Proxy {
+    realSubject
+    request1()
+    request2()
+    request3()
+}
+
+class RealSubject {
+    request1()
+    request2()
+    request3()
+}
+
+class Client
+
+Proxy .up..|> Subject
+RealSubject .up..|> Subject
+Proxy o-> RealSubject : Uses >
+Client o-> Subject : Uses >
+
+note right of Subject : 主体
+note bottom of Client : 请求者
+note top of Proxy : 代理人
+note top of RealSubject : 实际的主体
+
+@enduml
