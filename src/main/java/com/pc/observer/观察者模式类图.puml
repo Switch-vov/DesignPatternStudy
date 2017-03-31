@@ -1,0 +1,33 @@
+@startuml
+
+class Subject {
+    observers
+    addObserver()
+    deleteObserver()
+    notifyObservers()
+    getSubjectStatus()
+}
+
+interface Observer {
+    update()
+}
+
+class ConcreteSubject {
+    getSubjectStatus()
+}
+
+class ConcreteObserver {
+    update()
+}
+
+Subject o-right-> Observer : Notifies >
+ConcreteSubject -up-|> Subject
+ConcreteObserver .up.|> Observer
+
+note left of Subject : 观察对象
+note right of Observer : 观察者
+note bottom of ConcreteSubject : 具体的观察对象
+note bottom of ConcreteObserver : 具体的观察者
+
+
+@enduml
