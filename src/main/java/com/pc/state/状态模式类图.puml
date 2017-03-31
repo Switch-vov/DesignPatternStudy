@@ -1,0 +1,41 @@
+@startuml
+
+interface Context {
+    state
+    requestX()
+    requestY()
+    requestZ()
+}
+
+class State {
+    methodA()
+    methodB()
+    methodC()
+    methodD()
+}
+
+class ConcreteState1 {
+    methodA()
+    methodB()
+    methodC()
+    methodD()
+}
+
+class ConcreteState2 {
+    methodA()
+    methodB()
+    methodC()
+    methodD()
+}
+
+Context o-right-> State
+ConcreteState1 -up--|> State
+ConcreteState2 -up--|> State
+
+note bottom of Context : 上下文
+note right of State : 状态
+note "具体状态" as N1
+ConcreteState1 .. N1
+ConcreteState2 .. N1
+
+@enduml
