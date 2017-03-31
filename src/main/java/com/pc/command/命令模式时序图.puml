@@ -1,0 +1,24 @@
+@startuml
+
+skinparam sequenceParticipant underline
+
+participant ":Invoker" as A
+participant ":Client" as B
+participant ":ConcreteCommand" as C
+participant ":Receive" as D
+
+
+activate B
+activate C
+B -> C : new
+
+activate A
+A -> C : execute
+
+activate D
+C -> D : action
+
+D --> C
+C --> A
+
+@enduml
