@@ -1,0 +1,23 @@
+@startuml
+
+class Flyweight {
+    methodA()
+    methodB()
+}
+
+class FlyweightFactory {
+    pool
+    getFlyweight()
+}
+
+class Client
+
+Flyweight <--o FlyweightFactory : Creates <
+FlyweightFactory <--o Client : Uses <
+Flyweight <-- Client : Uses <
+
+note left of Flyweight : 享元类
+note right of FlyweightFactory : 享元工厂类
+note left of Client : 请求者
+
+@enduml
