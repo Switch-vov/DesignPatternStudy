@@ -1,0 +1,21 @@
+@startuml
+
+class Caretaker
+class Originator {
+    createMemento()
+    restoreMemento()
+}
+class Memento {
+    ~ getProtectedInfo() : <<wide interface>>
+    + getPublicInfo() : <<narrow interface>>
+}
+
+Caretaker -right-> Originator : Requests >
+Caretaker o--> Memento
+Originator --> Memento : Creates >
+
+note left of Caretaker : 负责人
+note right of Originator : 生成者
+note left of Memento : 备忘录
+
+@enduml
