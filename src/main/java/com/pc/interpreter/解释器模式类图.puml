@@ -1,0 +1,34 @@
+@startuml
+
+class Client
+
+class Context {
+    getInfoToInterpret()
+}
+
+abstract class AbstractExpression {
+    interpret()
+}
+
+class TerminalExpression {
+    interpret()
+}
+
+class NonterminalExpression {
+    childExpressions
+    interpret()
+}
+
+Client -right-> Context : Creates >
+Client --> AbstractExpression : Uses >
+TerminalExpression -up--|> AbstractExpression
+NonterminalExpression -up--|> AbstractExpression
+NonterminalExpression o-up--> AbstractExpression
+
+note left of Client : 请求者
+note bottom of Context : 上下文
+note left of AbstractExpression : 抽象表达式
+note bottom of TerminalExpression : 终结符表达式
+note bottom of NonterminalExpression : 非终结符表达式
+
+@enduml
